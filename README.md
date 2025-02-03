@@ -94,11 +94,11 @@ The **Status 365 Admin Panel** is designed to provide administrators with an int
 **From the backend directory, run:**
 ```bash
 npm run dev
-
+```
 **or for production:**
 ```bash
 npm start
-
+```
 **The backend server will start on the port specified in the .env file (default is 5000).**
 
 2. **Starting the Frontend**
@@ -107,7 +107,7 @@ npm start
     
     ```bash
     npm run dev
-
+```
     The Vite development server will start and typically be accessible at http://localhost:3000.
 
 ## API Endpoints
