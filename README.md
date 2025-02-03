@@ -53,7 +53,7 @@ The **Status 365 Admin Panel** is designed to provide administrators with an int
 
 3. **Configure Environment Variables:**
 
-    Create a ```bash.env``` file in the backend folder with the following content (replace placeholders with your actual AWS credentials and bucket details):
+    Create a ```.env``` file in the backend folder with the following content (replace placeholders with your actual AWS credentials and bucket details):
     ```bash
     AWS_ACCESS_KEY_ID=your_aws_access_key_id
     AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key
@@ -84,8 +84,8 @@ The **Status 365 Admin Panel** is designed to provide administrators with an int
 3. **Configuration:**
 
     The project uses Vite as the build tool with React and Tailwind CSS.
-    PostCSS configuration has been set up using the [postcss.config.cjs] file.
-    The [vite.config.js] file includes proxy settings to forward API requests to the backend.
+    PostCSS configuration has been set up using the ```postcss.config.cjs``` file.
+    The ```vite.config.js``` file includes proxy settings to forward API requests to the backend.
 
 ## Running the Application
 
