@@ -52,7 +52,6 @@ The **Status 365 Admin Panel** is designed to provide administrators with an int
     ```bash
     npm install
 
-
 3. **Configure Environment Variables:**
 
     Create a .env file in the backend folder with the following content (replace placeholders with your actual AWS credentials and bucket details):
@@ -62,7 +61,6 @@ The **Status 365 Admin Panel** is designed to provide administrators with an int
     AWS_REGION=your_aws_region
     AWS_BUCKET_NAME=your_bucket_name
     PORT=5000
-
 
 4. **Backend Overview:**
 
@@ -91,19 +89,17 @@ The **Status 365 Admin Panel** is designed to provide administrators with an int
 
 ## Running the Application
 
-1. **Starting the Backend**
+### Starting the Backend**
 
-    From the backend directory, run:
+**From the backend directory, run:**
+```bash
+npm run dev
 
-        ```bash
-        npm run dev
+**or for production:**
+```bash
+npm start
 
-or for production:
-        
-        ```bash
-        npm start
-
-    The backend server will start on the port specified in the .env file (default is 5000).
+**The backend server will start on the port specified in the .env file (default is 5000).**
 
 2. **Starting the Frontend**
 
