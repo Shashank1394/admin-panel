@@ -49,6 +49,7 @@ The **Status 365 Admin Panel** is designed to provide administrators with an int
 
 2. **Install dependencies:**
 
+    ```bash
     npm install
 
 
@@ -74,10 +75,12 @@ The **Status 365 Admin Panel** is designed to provide administrators with an int
 
 1. **Navigate to the frontend folder:**
 
+    ```bash
     cd admin-panel/frontend
 
 2. **Install dependencies:**
 
+    ```bash
     npm install
 
 3. **Configuration:**
@@ -90,20 +93,26 @@ The **Status 365 Admin Panel** is designed to provide administrators with an int
 
 1. **Starting the Backend**
 
-From the backend directory, run:
-npm run dev
+    From the backend directory, run:
 
-or for production:
-npm start
+        ```bash
+        npm run dev
 
-The backend server will start on the port specified in the .env file (default is 5000).
+    or for production:
+        
+        ```bash
+        npm start
+
+    The backend server will start on the port specified in the .env file (default is 5000).
 
 2. **Starting the Frontend**
 
-From the frontend directory, run:
-npm run dev
+    From the frontend directory, run:
+    
+    ```bash
+    npm run dev
 
-The Vite development server will start and typically be accessible at http://localhost:3000.
+    The Vite development server will start and typically be accessible at http://localhost:3000.
 
 ## API Endpoints
 
@@ -113,6 +122,7 @@ The Vite development server will start and typically be accessible at http://loc
     Headers: Content-Type: multipart/form-data
     Response:
 
+    ```bash
     {
         "message": "File uploaded successfully",
         "file": {
@@ -126,6 +136,7 @@ The Vite development server will start and typically be accessible at http://loc
     Description: Lists all files in the S3 bucket.
     Response:
 
+    ```bash
     {
         "files": [
             {
