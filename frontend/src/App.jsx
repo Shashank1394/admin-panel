@@ -77,7 +77,7 @@ function App() {
       {/* Header */}
       <header className="py-6 bg-white shadow-md w-full text-center">
         <h1 className="text-4xl font-extrabold text-gray-800">
-          Status 365 Admin Panel
+          Admin Panel
         </h1>
       </header>
 
