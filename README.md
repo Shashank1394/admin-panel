@@ -11,7 +11,6 @@ A full-fledged admin panel web application built with React and Vite for managin
 - [Installation](#installation)
   - [Backend Setup](#backend-setup)
   - [Frontend Setup](#frontend-setup)
-- [Environment Variables](#environment-variables)
 - [Running the Application](#running-the-application)
 - [API Endpoints](#api-endpoints)
 - [Security Considerations](#security-considerations)
@@ -54,20 +53,21 @@ The **Status 365 Admin Panel** is designed to provide administrators with an int
 
 3. **Configure Environment Variables:**
 
-    Create a .env file in the backend folder with the following content (replace placeholders with your actual AWS credentials and bucket details):
-
+    Create a [.env] file in the backend folder with the following content (replace placeholders with your actual AWS credentials and bucket details):
+    ```bash
     AWS_ACCESS_KEY_ID=your_aws_access_key_id
     AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key
     AWS_REGION=your_aws_region
     AWS_BUCKET_NAME=your_bucket_name
     PORT=5000
+    ```
 
 4. **Backend Overview:**
 
     The backend uses Express with multer-s3 to handle file uploads directly to AWS S3.
     It exposes two main endpoints:
-        POST /api/upload: For uploading a file.
-        GET /api/files: For listing all uploaded files.
+        [POST /api/upload](#api-endpoints): For uploading a file.
+        [GET /api/files](#api-endpoints): For listing all uploaded files.
 
 ### Frontend Setup
 
@@ -84,8 +84,8 @@ The **Status 365 Admin Panel** is designed to provide administrators with an int
 3. **Configuration:**
 
     The project uses Vite as the build tool with React and Tailwind CSS.
-    PostCSS configuration has been set up using the postcss.config.cjs file.
-    The vite.config.js file includes proxy settings to forward API requests to the backend.
+    PostCSS configuration has been set up using the [postcss.config.cjs] file.
+    The [vite.config.js] file includes proxy settings to forward API requests to the backend.
 
 ## Running the Application
 
