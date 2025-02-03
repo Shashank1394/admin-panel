@@ -98,7 +98,7 @@ The **Status 365 Admin Panel** is designed to provide administrators with an int
         ```bash
         npm run dev
 
-    or for production:
+or for production:
         
         ```bash
         npm start
