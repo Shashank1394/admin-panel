@@ -53,7 +53,7 @@ The **Status 365 Admin Panel** is designed to provide administrators with an int
 
 3. **Configure Environment Variables:**
 
-    Create a [.env] file in the backend folder with the following content (replace placeholders with your actual AWS credentials and bucket details):
+    Create a ```bash.env``` file in the backend folder with the following content (replace placeholders with your actual AWS credentials and bucket details):
     ```bash
     AWS_ACCESS_KEY_ID=your_aws_access_key_id
     AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key
