@@ -101,14 +101,13 @@ npm start
 ```
 **The backend server will start on the port specified in the .env file (default is 5000).**
 
-2. **Starting the Frontend**
+### Starting the Frontend
 
-    From the frontend directory, run:
-    
-    ```bash
-    npm run dev
+**From the frontend directory, run:**
+```bash
+npm run dev
 ```
-    The Vite development server will start and typically be accessible at http://localhost:3000.
+**The Vite development server will start and typically be accessible at http://localhost:3000.**
 
 ## API Endpoints
 
@@ -126,6 +125,7 @@ npm start
             "url": "https://your_bucket_name.s3.your_aws_region.amazonaws.com/timestamp-filename.ext"
         }
     }
+    ```
 
 2. **GET /api/files**
 
@@ -142,6 +142,7 @@ npm start
             ...
         ]
     }
+    ```
 
 ## Security Considerations
 
