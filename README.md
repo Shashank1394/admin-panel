@@ -89,7 +89,7 @@ The **Status 365 Admin Panel** is designed to provide administrators with an int
 
 ## Running the Application
 
-### Starting the Backend**
+### Starting the Backend
 
 **From the backend directory, run:**
 ```bash
