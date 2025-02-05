@@ -1,3 +1,5 @@
+// backend/server.js
+
 const express = require('express');
 const multer = require('multer');
 const cors = require('cors');
@@ -53,6 +55,19 @@ app.get('/api/files', (req, res) => {
       url: `${req.protocol}://${req.get('host')}/uploads/${file}`
     }));
     res.status(200).json({ files: fileList });
+  });
+});
+
+// API endpoint to delete a file
+app.delete('/api/files/:filename', (req, res) => {
+  const { filename } = req.params;
+  const filePath = path.join(__dirname, 'uploads', filename);
+  fs.unlink(filePath, (err) => {
+    if (err) {
+      console.error('File deletion error:', err);
+      return res.status(500).json({ error: 'File deletion failed' });
+    }
+    res.status(200).json({ message: 'File deleted successfully' });
   });
 });
 

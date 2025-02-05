@@ -10,7 +10,7 @@ export default function LoadingPage() {
   useEffect(() => {
     const timer = setTimeout(() => {
       navigate('/admin');
-    }, 3000);
+    }, 1500);
     return () => clearTimeout(timer);
   }, [navigate]);
 
