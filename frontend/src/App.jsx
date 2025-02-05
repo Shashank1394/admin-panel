@@ -3,8 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoadingPage from './pages/LoadingPage';
 import AdminPanel from './pages/AdminPanel';
-import UploadPage from './pages/UploadPage';
-import ManagePage from './pages/UploadPage';
+import ManagePage from './pages/ManagePage';
 
 function App() {
   return (
