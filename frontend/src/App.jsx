@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoadingPage from './pages/LoadingPage';
 import AdminPanel from './pages/AdminPanel';
 import UploadPage from './pages/UploadPage';
+import ManagePage from './pages/UploadPage';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LoadingPage />} />
         <Route path="/admin" element={<AdminPanel />} />
-        <Route path="/upload" element={<UploadPage />} />
+        <Route path="/manage" element={<ManagePage />} />
       </Routes>
     </Router>
   );

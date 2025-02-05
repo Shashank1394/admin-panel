@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 
-function UploadPage() {
+function ManagePage() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [uploadStatus, setUploadStatus] = useState('');
   const [files, setFiles] = useState([]);
@@ -239,4 +239,4 @@ function UploadPage() {
   );
 }
 
-export default UploadPage;
+export default ManagePage;

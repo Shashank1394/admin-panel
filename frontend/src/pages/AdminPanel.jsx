@@ -18,7 +18,7 @@ export default function AdminPanel() {
       <div className="flex flex-wrap justify-center gap-6 w-full max-w-4xl px-4">
         {/* Option: Manage Content (redirects to the Upload Page) */}
         <motion.div
-          onClick={() => navigate('/upload')}
+          onClick={() => navigate('/manage')}
           className="p-6 bg-white rounded-lg shadow-lg w-64 text-center cursor-pointer"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
@@ -28,7 +28,7 @@ export default function AdminPanel() {
         </motion.div>
         {/* Option: View Gallery */}
         <motion.div
-          onClick={() => navigate('/gallery')}
+          onClick={() => navigate('/manage')}
           className="p-6 bg-white rounded-lg shadow-lg w-64 text-center cursor-pointer"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
