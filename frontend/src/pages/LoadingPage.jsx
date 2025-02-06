@@ -1,3 +1,4 @@
+// frontend/src/pages/LoadingPage.jsx
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/loading.scss'; // Correct import path

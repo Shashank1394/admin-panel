@@ -1,3 +1,5 @@
+@use "sass:math"; // Import math module to use math.div()
+
 .loading-page {
   position: fixed;
   top: 0;
@@ -16,12 +18,11 @@
 }
 
 $w-size: 200px;
-$w-margin: -$w-size/2;
-$b-size: 70%; //This is % based on $w-size. Use any value you want (that makes sense) and any unit that you would like (test it)
+$w-margin: math.div(-$w-size, 2); // Use math.div() for division
+$b-size: 70%; // This is % based on $w-size. Use any value you want (that makes sense) and any unit that you would like.
 $box-wrapper-width: $b-size;
 $box-wrapper-height: $b-size;
-$box-wrapper-margin: calc((100% - #{$box-wrapper-height}) / 2)
-  calc((100% - #{$box-wrapper-width}) / 2);
+$box-wrapper-margin: calc((100% - #{$box-wrapper-height}) / 2) calc((100% - #{$box-wrapper-width}) / 2);
 
 .wrapper {
   position: absolute;
@@ -106,37 +107,30 @@ $box-wrapper-margin: calc((100% - #{$box-wrapper-height}) / 2)
     clip-path: inset(0% 35% 70% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   14.2857% {
     clip-path: inset(0% 35% 70% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   28.5714% {
     clip-path: inset(35% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   42.8571% {
     clip-path: inset(35% 70% 35% 0 round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   57.1428% {
     clip-path: inset(35% 70% 35% 0 round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   71.4285% {
     clip-path: inset(0% 70% 70% 0 round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   85.7142% {
     clip-path: inset(0% 70% 70% 0 round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   100% {
     clip-path: inset(0% 35% 70% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
@@ -149,37 +143,30 @@ $box-wrapper-margin: calc((100% - #{$box-wrapper-height}) / 2)
     clip-path: inset(0% 70% 70% 0 round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   14.2857% {
     clip-path: inset(0% 70% 70% 0 round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   28.5714% {
     clip-path: inset(0% 35% 70% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   42.8571% {
     clip-path: inset(0% 35% 70% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   57.1428% {
     clip-path: inset(35% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   71.4285% {
     clip-path: inset(35% 70% 35% 0 round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   85.7142% {
     clip-path: inset(35% 70% 35% 0 round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   100% {
     clip-path: inset(0% 70% 70% 0 round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
@@ -192,22 +179,18 @@ $box-wrapper-margin: calc((100% - #{$box-wrapper-height}) / 2)
     clip-path: inset(35% 70% 35% 0 round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   14.2857% {
     clip-path: inset(35% 70% 35% 0 round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   28.5714% {
     clip-path: inset(0% 70% 70% 0 round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   42.8571% {
     clip-path: inset(0% 70% 70% 0 round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   57.1428% {
     clip-path: inset(0% 35% 70% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
@@ -216,12 +199,10 @@ $box-wrapper-margin: calc((100% - #{$box-wrapper-height}) / 2)
     clip-path: inset(0% 35% 70% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   85.7142% {
     clip-path: inset(35% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   100% {
     clip-path: inset(35% 70% 35% 0 round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
@@ -234,22 +215,18 @@ $box-wrapper-margin: calc((100% - #{$box-wrapper-height}) / 2)
     clip-path: inset(35% 0% 35% 70% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   14.2857% {
     clip-path: inset(35% 0% 35% 70% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   28.5714% {
     clip-path: inset(35% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   42.8571% {
     clip-path: inset(70% 35% 0% 35% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   57.1428% {
     clip-path: inset(70% 35% 0% 35% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
@@ -258,12 +235,10 @@ $box-wrapper-margin: calc((100% - #{$box-wrapper-height}) / 2)
     clip-path: inset(70% 0 0 70% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   85.7142% {
     clip-path: inset(70% 0 0 70% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   100% {
     clip-path: inset(35% 0% 35% 70% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
@@ -276,37 +251,30 @@ $box-wrapper-margin: calc((100% - #{$box-wrapper-height}) / 2)
     clip-path: inset(70% 0 0 70% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   14.2857% {
     clip-path: inset(70% 0 0 70% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   28.5714% {
     clip-path: inset(35% 0% 35% 70% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   42.8571% {
     clip-path: inset(35% 0% 35% 70% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   57.1428% {
     clip-path: inset(35% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   71.4285% {
     clip-path: inset(70% 35% 0% 35% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   85.7142% {
     clip-path: inset(70% 35% 0% 35% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   100% {
     clip-path: inset(70% 0 0 70% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
@@ -319,37 +287,30 @@ $box-wrapper-margin: calc((100% - #{$box-wrapper-height}) / 2)
     clip-path: inset(70% 35% 0% 35% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   14.2857% {
     clip-path: inset(70% 35% 0% 35% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   28.5714% {
     clip-path: inset(70% 0 0 70% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   42.8571% {
     clip-path: inset(70% 0 0 70% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   57.1428% {
     clip-path: inset(35% 0% 35% 70% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   71.4285% {
     clip-path: inset(35% 0% 35% 70% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   85.7142% {
     clip-path: inset(35% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   }
-
   100% {
     clip-path: inset(70% 35% 0% 35% round 5%);
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);

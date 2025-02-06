@@ -1,4 +1,4 @@
-// frontend/src/App.jsx
+// frontend/src/pages/ManagePage.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 
@@ -163,17 +163,18 @@ function ManagePage() {
           {images.length === 0 ? (
             <p className="text-center text-gray-500">No images uploaded yet.</p>
           ) : (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
               {images.map((file) => (
                 <div
                   key={file.filename}
                   className="border border-gray-200 rounded-md overflow-hidden relative"
                 >
-                  <div className="w-full h-40 flex items-center justify-center bg-gray-50">
+                  {/* The container now only wraps the media */}
+                  <div className="bg-gray-50 flex items-center justify-center">
                     <img
                       src={file.url}
                       alt={file.filename}
-                      className="max-h-full max-w-full object-contain"
+                      className="block object-cover" // No fixed width/height
                     />
                   </div>
                   <div className="absolute top-0 right-0 p-1">
@@ -203,17 +204,17 @@ function ManagePage() {
           {videos.length === 0 ? (
             <p className="text-center text-gray-500">No videos uploaded yet.</p>
           ) : (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
               {videos.map((file) => (
                 <div
                   key={file.filename}
                   className="border border-gray-200 rounded-md overflow-hidden relative"
                 >
-                  <div className="w-full h-40 flex items-center justify-center bg-gray-50">
+                  <div className="bg-gray-50 flex items-center justify-center">
                     <video
                       src={file.url}
                       controls
-                      className="max-h-full max-w-full object-contain"
+                      className="block object-cover" // No fixed width/height
                     />
                   </div>
                   <div className="absolute top-0 right-0 p-1">
