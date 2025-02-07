@@ -20,7 +20,6 @@ export default function AdminPanel() {
         {/* Option: Dashboard */}
         <motion.div
           onClick={() => navigate('/dashboard')}
-          onClick={() => navigate('/dashboard')}
           className="p-6 bg-white rounded-lg shadow-lg w-64 text-center cursor-pointer"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
