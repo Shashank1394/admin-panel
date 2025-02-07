@@ -1,3 +1,4 @@
+// frontend/src/context/AuthContext.jsx
 import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -13,11 +14,13 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     if (token) {
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      // Optionally, decode the token or fetch user details from backend.
-      setUser({ username: 'admin' }); // Example only – replace as needed.
+      console.log("Token set in axios headers:", token);
+      // Optionally, decode the token or fetch user details from the backend.
+      setUser({ username: 'admin' }); // Example – replace as needed.
     } else {
       delete axios.defaults.headers.common['Authorization'];
       setUser(null);
+      console.log("No token found. Axios Authorization header removed.");
     }
     setLoading(false);
   }, [token]);
@@ -26,11 +29,12 @@ export const AuthProvider = ({ children }) => {
     try {
       const response = await axios.post('/api/login', { username, password });
       const receivedToken = response.data.token;
+      console.log("Login successful. Received token:", receivedToken);
       localStorage.setItem('authToken', receivedToken);
       setToken(receivedToken);
       return { success: true };
     } catch (error) {
-      console.error('Login failed:', error);
+      console.error('Login failed:', error.response?.data?.message || error.message);
       return { success: false, error: error.response?.data?.message || 'Login failed' };
     }
   };
@@ -39,6 +43,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('authToken');
     setToken(null);
     setUser(null);
+    console.log("User logged out. Token removed.");
   };
 
   return (

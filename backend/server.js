@@ -3,77 +3,33 @@ const multer = require('multer');
 const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Use environment variable for JWT secret in production
-const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
-
 // Enable CORS to allow requests from the frontend
 app.use(cors());
 
-// Parse JSON bodies (for login)
+// Parse JSON bodies
 app.use(express.json());
 
-// Serve static files from the uploads folder (accessible by clients)
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
-// -------------------------
-// Authentication Section
-// -------------------------
-
-// Dummy admin user – in production, replace with database lookup.
-const adminUser = {
-  username: 'admin',
-  // The password is "admin123" hashed; change as needed.
-  passwordHash: bcrypt.hashSync('admin123', 10),
-};
-
-// Login endpoint to authenticate user and return a JWT.
-app.post('/api/login', async (req, res) => {
-  const { username, password } = req.body;
-
-  // Validate username
-  if (username !== adminUser.username) {
-    return res.status(401).json({ message: 'Invalid credentials' });
-  }
-
-  // Validate password
-  const isPasswordValid = await bcrypt.compare(password, adminUser.passwordHash);
-  if (!isPasswordValid) {
-    return res.status(401).json({ message: 'Invalid credentials' });
-  }
-
-  // Generate a JWT that expires in 1 hour.
-  const token = jwt.sign({ username }, JWT_SECRET, { expiresIn: '1h' });
-  res.json({ token });
-});
-
-// Middleware to verify JWT tokens.
-function authenticateToken(req, res, next) {
-  const authHeader = req.headers['authorization'];
-  // The token is expected to be in the format "Bearer <token>"
-  const token = authHeader && authHeader.split(' ')[1];
-  if (!token) return res.status(401).json({ error: 'Access token missing' });
-
-  jwt.verify(token, JWT_SECRET, (err, user) => {
-    if (err) return res.status(403).json({ error: 'Invalid or expired token' });
-    req.user = user;
-    next();
-  });
+// Ensure the uploads directory exists
+const uploadsDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir, { recursive: true });
 }
 
+// Serve static files from the uploads folder
+app.use('/uploads', express.static(uploadsDir));
+
 // -------------------------
-// File Upload and Management
+// File Upload and Management (No Authentication)
 // -------------------------
 
 // Configure multer for file uploads.
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, 'uploads')); // Files are saved in the uploads directory
+    cb(null, uploadsDir);
   },
   filename: function (req, file, cb) {
     // Prepend a timestamp to avoid collisions.
@@ -82,12 +38,11 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-// Protected API endpoint to handle file uploads.
-app.post('/api/upload', authenticateToken, upload.single('file'), (req, res) => {
+// Endpoint to handle file uploads.
+app.post('/api/upload', upload.single('file'), (req, res) => {
   if (!req.file) {
     return res.status(400).json({ error: 'No file provided' });
   }
-  // In production, also store file metadata in a database.
   res.status(200).json({
     message: 'File uploaded successfully',
     file: {
@@ -97,11 +52,11 @@ app.post('/api/upload', authenticateToken, upload.single('file'), (req, res) => 
   });
 });
 
-// Protected API endpoint to list all uploaded files.
-app.get('/api/files', authenticateToken, (req, res) => {
-  const uploadsDir = path.join(__dirname, 'uploads');
+// Endpoint to list all uploaded files.
+app.get('/api/files', (req, res) => {
   fs.readdir(uploadsDir, (err, files) => {
     if (err) {
+      console.error('Error reading uploads directory:', err);
       return res.status(500).json({ error: 'Unable to scan uploads directory' });
     }
     // Return full URLs so clients can fetch the files directly.
@@ -113,10 +68,10 @@ app.get('/api/files', authenticateToken, (req, res) => {
   });
 });
 
-// Protected API endpoint to delete a file.
-app.delete('/api/files/:filename', authenticateToken, (req, res) => {
+// Endpoint to delete a file.
+app.delete('/api/files/:filename', (req, res) => {
   const { filename } = req.params;
-  const filePath = path.join(__dirname, 'uploads', filename);
+  const filePath = path.join(uploadsDir, filename);
   fs.unlink(filePath, (err) => {
     if (err) {
       console.error('File deletion error:', err);
