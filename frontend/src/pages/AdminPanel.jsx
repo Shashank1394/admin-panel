@@ -16,7 +16,17 @@ export default function AdminPanel() {
       </p>
       {/* Options Section */}
       <div className="flex flex-wrap justify-center gap-6 w-full max-w-4xl px-4">
-        {/* Option: Manage Content (redirects to the Upload Page) */}
+        {/* Option: Dashboard */}
+        <motion.div
+          onClick={() => navigate('/dashboard')}
+          className="p-6 bg-white rounded-lg shadow-lg w-64 text-center cursor-pointer"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
+        >
+          <h3 className="text-xl font-bold mb-2 text-gray-800">Dashboard</h3>
+          <p className="text-gray-600">View analytics and stats.</p>
+        </motion.div>
+        {/* Option: Manage Content */}
         <motion.div
           onClick={() => navigate('/manage')}
           className="p-6 bg-white rounded-lg shadow-lg w-64 text-center cursor-pointer"
@@ -24,27 +34,7 @@ export default function AdminPanel() {
           transition={{ duration: 0.3 }}
         >
           <h3 className="text-xl font-bold mb-2 text-gray-800">Manage Content</h3>
-          <p className="text-gray-600">Easily manage and organize your media.</p>
-        </motion.div>
-        {/* Option: View Gallery */}
-        <motion.div
-          onClick={() => navigate('/manage')}
-          className="p-6 bg-white rounded-lg shadow-lg w-64 text-center cursor-pointer"
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.3 }}
-        >
-          <h3 className="text-xl font-bold mb-2 text-gray-800">View Gallery</h3>
-          <p className="text-gray-600">Browse a rich gallery of content.</p>
-        </motion.div>
-        {/* Option: Other Feature */}
-        <motion.div
-          onClick={() => navigate('/manage')}
-          className="p-6 bg-white rounded-lg shadow-lg w-64 text-center cursor-pointer"
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.3 }}
-        >
-          <h3 className="text-xl font-bold mb-2 text-gray-800">Other Feature</h3>
-          <p className="text-gray-600">Additional functionality here.</p>
+          <p className="text-gray-600">Upload and manage your files.</p>
         </motion.div>
       </div>
     </div>
